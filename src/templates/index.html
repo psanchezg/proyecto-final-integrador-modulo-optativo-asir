@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASIR-Bot Chat</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <header>
+            <h1>🤖 ASIR-Bot</h1>
+            <p>Proyecto Final - Módulo Optativo</p>
+        </header>
+        
+        <div id="chat-box" class="chat-box">
+            <div class="message bot">¡Hola! Soy ASIR-Bot. ¿En qué puedo ayudarte?</div>
+        </div>
+
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Escribe tu mensaje aquí..." autocomplete="off">
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        async function sendMessage() {
+            const input = document.getElementById('user-input');
+            const chatBox = document.getElementById('chat-box');
+            const mensaje = input.value.trim();
+
+            if (!mensaje) return;
+
+            // Mostrar mensaje del usuario
+            appendMessage(mensaje, 'user');
+            input.value = '';
+
+            try {
+                const response = await fetch('/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ mensaje: mensaje })
+                });
+                const data = await response.json();
+                appendMessage(data.respuesta, 'bot');
+            } catch (error) {
+                appendMessage('Error: No se pudo contactar con el servidor.', 'bot');
+            }
+        }
+
+        function appendMessage(text, side) {
+            const chatBox = document.getElementById('chat-box');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `message ${side}`;
+            msgDiv.innerText = text;
+            chatBox.appendChild(msgDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        document.getElementById('user-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') sendMessage();
+        });
+    </script>
+</body>
+</html>
