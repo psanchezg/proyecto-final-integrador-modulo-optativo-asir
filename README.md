@@ -73,7 +73,7 @@ Añadimos FastAPI y las herramientas necesarias para la interfaz web y el servid
 uv add fastapi uvicorn jinja2
 ```
 
-## 🚀 Ejecución
+## 🚀 Ejecución (Local con uv)
 
 Para ejecutar la aplicación en modo desarrollo (con recarga automática):
 
@@ -85,7 +85,7 @@ uv run uvicorn src.main:app --reload
 
 Una vez en ejecución, puedes interactuar con el chatbot de dos formas:
 
-1.  **Interfaz Web:** Abre tu navegador en `http://127.0.0.1:8000` para usar la interfaz gráfica.
+1.  **Interfaz Web:** Abre el navegador en `http://127.0.0.1:8000` para usar la interfaz gráfica.
 2.  **Documentación API:** Accede a `http://127.0.0.1:8000/docs` para probar los endpoints manualmente.
 
 ### 💬 Mensajes de prueba
@@ -95,3 +95,25 @@ Puedes probar el chatbot con las siguientes frases:
 - "¿Quién eres?"
 - "¿Qué es ASIR?"
 - "Frase aleatoria" (para ver la respuesta por defecto)
+
+## 🐳 Docker
+
+Este proyecto está preparado para ser ejecutado en contenedores.
+
+### 1. Construir la imagen
+
+Puedes etiquetar la imagen manualmente o usar este comando para extraer la versión automáticamente desde el `pyproject.toml`:
+
+```bash
+# Extrae la versión (ej. 0.1.0) y construye la imagen
+VERSION=$(grep -m 1 version pyproject.toml | cut -d '"' -f 2)
+docker build -t asir-bot:$VERSION .
+```
+
+### 2. Ejecutar el contenedor
+
+```bash
+docker run -d -p 8000:8000 --name asir-bot-container asir-bot
+```
+
+La aplicación está disponible en `http://127.0.0.1:8000`.
