@@ -2,7 +2,48 @@
 
 Este proyecto consiste en el desarrollo de un chatbot inteligente y ligero utilizando Python, diseñado para ser fácilmente desplegable mediante contenedores.
 
+## 📁 Organización del Repositorio
+
+A continuación se muestra la estructura del proyecto y el flujo de trabajo seguido:
+
+### Estructura de archivos
+```text
+.
+├── pyproject.toml       # Configuración de dependencias (uv)
+├── Dockerfile           # Construir la imagen del contenedor
+├── docker-compose.yml   # Orquestación de servicios y volúmenes
+├── data/                # Carpeta de persistencia
+│   └── conocimientos.json
+├── src/                 # Código fuente de la aplicación
+│   ├── main.py          # Servidor FastAPI
+│   ├── brain.py         # Lógica del chatbot
+│   ├── templates/       # Vistas HTML (Jinja2)
+│   └── static/          # Estilos CSS y JS
+└── docs/                # Documentación detallada
+```
+
+### Flujo de ramas (Git Workflow)
+El proyecto se ha desarrollado siguiendo una metodología de ramas por funcionalidad:
+- **`main`**: Versión estable y lista para producción.
+- **`feature/initial-setup`**: Configuración de `uv`, estructura de carpetas y README inicial.
+- **`feature/backend`**: Implementación de la lógica en Python y FastAPI.
+- **`feature/frontend`**: Desarrollo de la interfaz web y estilos.
+- **`feature/docker`**: Creación del Dockerfile y pruebas de imagen.
+- **`feature/orchestration`**: Configuración de Docker Compose y persistencia.
+- **`feature/enhanced-docs`**: (Actual) Mejora de la documentación detallada.
+
+## 📖 Documentación Detallada
+
+Para más información sobre el funcionamiento técnico, consulta los siguientes documentos:
+
+- 🐳 [Explicación del Dockerfile](./docs/dockerfile.md)
+- 🐙 [Explicación del Docker Compose](./docs/docker-compose.md)
+- 🔧 [Solución de problemas comunes](./docs/troubleshooting.md)
+
+---
+
 ## 📋 Aplicación
+... (resto del contenido)
 
 Aplicación en lenguage _python_ con una **interfaz web** en lugar de Tkinter para garantizar una mejor compatibilidad con entornos Docker y facilitar el acceso remoto y online.
 
