@@ -75,8 +75,10 @@ uv add fastapi uvicorn jinja2
 
 ## 🚀 Ejecución
 
-Para ejecutar la aplicación:
+Para ejecutar la aplicación en modo desarrollo (con recarga automática):
 
 ```bash
-uv run src/main.py
+uv run uvicorn src.main:app --reload
 ```
+
+La API estará disponible en `http://127.0.0.1:8000`. Puedes probar el chatbot enviando un POST a `/chat` o accediendo a la documentación automática en `/docs`.

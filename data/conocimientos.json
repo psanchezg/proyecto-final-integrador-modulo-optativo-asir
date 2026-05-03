@@ -1,0 +1,15 @@
+{
+    "saludos": {
+        "preguntas": ["hola", "buenas", "buenos dias", "que tal"],
+        "respuesta": "¡Hola! Soy ASIR-Bot. ¿En qué puedo ayudarte hoy?"
+    },
+    "identidad": {
+        "preguntas": ["quien eres", "como te llamas", "que haces"],
+        "respuesta": "Soy un chatbot educativo creado para el Proyecto Final de ASIR."
+    },
+    "asir": {
+        "preguntas": ["que es asir", "ciclo asir"],
+        "respuesta": "ASIR significa Administración de Sistemas Informáticos en Red."
+    },
+    "default": "Lo siento, no entiendo esa pregunta todavía."
+}
