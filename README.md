@@ -39,3 +39,44 @@ Para cumplir con los requisitos del módulo, el desarrollo se organizará de la 
 3. **Fase de Contenerización:**
    - Definir `Dockerfile` basado en `python:3.11-slim` que copie el contenido de `src/`.
    - Configurar `docker-compose.yml` montando el volumen `./data:/app/data` para que el aprendizaje del bot no se pierda al reiniciar el contenedor.
+
+
+## ⚙️ Requerimientos e instalaciones iniciales
+
+Para el desarrollo de este proyecto, utilizaremos `uv`, un administrador de paquetes y entornos de Python extremadamente rápido escrito en Rust.
+
+### 1. Instalación de `uv`
+Si no tienes `uv` instalado, puedes hacerlo siguiendo las instrucciones oficiales de [Astral](https://github.com/astral-sh/uv):
+
+**macOS/Linux:**
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+**Windows (PowerShell):**
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+### 2. Inicialización del proyecto (sólo para desarrollo)
+Una vez instalado `uv`, inicializamos nuestro entorno de trabajo:
+
+```bash
+# Inicializar el proyecto (crea pyproject.toml)
+uv init
+```
+
+### 3. Instalación de dependencias
+Añadimos FastAPI y las herramientas necesarias para la interfaz web y el servidor:
+
+```bash
+uv add fastapi uvicorn jinja2
+```
+
+## 🚀 Ejecución
+
+Para ejecutar la aplicación:
+
+```bash
+uv run src/main.py
+```
