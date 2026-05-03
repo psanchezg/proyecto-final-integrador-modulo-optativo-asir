@@ -110,10 +110,33 @@ VERSION=$(grep -m 1 version pyproject.toml | cut -d '"' -f 2)
 docker build -t asir-bot:$VERSION .
 ```
 
-### 2. Ejecutar el contenedor
+### 2. Ejecutar el contenedor (Manual)
 
 ```bash
 docker run -d -p 8000:8000 --name asir-bot-container asir-bot
 ```
 
+## 🐙 Orquestación con Docker Compose
+
+La forma recomendada de desplegar el chatbot es usando Docker Compose, ya que gestiona automáticamente los volúmenes para la persistencia de datos.
+
+### 1. Levantar el servicio
+
+```bash
+docker compose up -d
+```
+
+Este comando construirá la imagen y levantará el contenedor mapeando el puerto `8000` y montando el volumen de datos.
+
+### 2. Persistencia de datos
+
+Gracias al archivo `docker-compose.yml`, los cambios que el bot aprenda o los ajustes en `data/conocimientos.json` se mantendrán aunque el contenedor se detenga o elimine, ya que están vinculados a la carpeta local `./data`.
+
+### 3. Detener los servicios
+
+```bash
+docker compose down
+```
+
 La aplicación está disponible en `http://127.0.0.1:8000`.
+
