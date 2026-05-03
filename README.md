@@ -81,4 +81,17 @@ Para ejecutar la aplicación en modo desarrollo (con recarga automática):
 uv run uvicorn src.main:app --reload
 ```
 
-La API estará disponible en `http://127.0.0.1:8000`. Puedes probar el chatbot enviando un POST a `/chat` o accediendo a la documentación automática en `/docs`.
+### 🌐 Acceso a la aplicación
+
+Una vez en ejecución, puedes interactuar con el chatbot de dos formas:
+
+1.  **Interfaz Web:** Abre tu navegador en `http://127.0.0.1:8000` para usar la interfaz gráfica.
+2.  **Documentación API:** Accede a `http://127.0.0.1:8000/docs` para probar los endpoints manualmente.
+
+### 💬 Mensajes de prueba
+
+Puedes probar el chatbot con las siguientes frases:
+- "Hola" o "Buenas"
+- "¿Quién eres?"
+- "¿Qué es ASIR?"
+- "Frase aleatoria" (para ver la respuesta por defecto)
