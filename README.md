@@ -64,11 +64,6 @@ Una vez instalado `uv`, inicializamos nuestro entorno de trabajo:
 ```bash
 # Inicializar el proyecto (crea pyproject.toml)
 uv init
-
-# Crear el entorno virtual e instalar las dependencias base
-uv venv
-source .venv/bin/activate  # En Linux/macOS
-# .venv\Scripts\activate   # En Windows
 ```
 
 ### 3. Instalación de dependencias
@@ -76,4 +71,12 @@ Añadimos FastAPI y las herramientas necesarias para la interfaz web y el servid
 
 ```bash
 uv add fastapi uvicorn jinja2
+```
+
+## 🚀 Ejecución
+
+Para ejecutar la aplicación:
+
+```bash
+uv run src/main.py
 ```
